@@ -9,11 +9,12 @@ namespace mitoSoft.Razor.Logging.Components.Extensions
         public static ILoggingBuilder AddPage(this ILoggingBuilder builder)
         {
             var provider = new DictionaryLoggerProvider();
+            var options = new PageLoggerOptions();
             provider.Options.RegisterCallback = Trunk.RegisterLogger;
-            provider.Options.DateTimeKind = DateTimeKind.Local;
-            provider.Options.MaxRows = 100;
-            Trunk.MaxRows = 100;
-            Trunk.OutputFormat = "{date}\t[{level}] {message}";
+            provider.Options.DateTimeKind = options.DateTimeKind;
+            provider.Options.MaxRows = options.MaxRows; ;
+            Trunk.MaxRows = options.MaxRows;
+            Trunk.OutputFormat = options.OutputFormat;
             Trunk.IsConfigured = true;
 
             builder.AddProvider(provider);
