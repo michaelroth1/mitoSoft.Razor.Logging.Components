@@ -12,11 +12,8 @@
     <PackageTags>Blazor Razor logging loggingcomponent loggingpage</PackageTags>
     <Description>The library contains an embeddable razor component that shows logentries on a textarea of a razor page.</Description>
     <Version>2.0.2</Version>
-    <PackageReleaseNotes>[Features]
-added parameter 'OutputFormat' to PageLoggerOptions
-
-[Common]
-adopt version number to mitoSoft.Razor.Logging</PackageReleaseNotes>
+    <PackageReleaseNotes>[Bugfixes]
+update mitoSoft.Razor.Logging to version 2.0.2</PackageReleaseNotes>
   </PropertyGroup>
 
   
@@ -27,7 +24,7 @@ adopt version number to mitoSoft.Razor.Logging</PackageReleaseNotes>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.12" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <PackageReference Include="mitoSoft.Razor.Logging" Version="2.0.1" />
+    <PackageReference Include="mitoSoft.Razor.Logging" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
