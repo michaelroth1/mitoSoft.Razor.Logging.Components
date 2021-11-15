@@ -139,7 +139,7 @@ else
         {
             lines.Reverse();
         }
-        var texts = lines.Select(l => l.ToString("")).ToList();
+        var texts = lines.Select(l => l.ToString(Trunk.OutputFormat)).ToList();
         return string.Join('\n', texts);
     }
 }
