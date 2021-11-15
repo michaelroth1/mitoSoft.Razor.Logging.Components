@@ -1,0 +1,145 @@
+﻿@page "/logging"
+
+@using mitoSoft.Razor.Logging.Dictionary
+@using mitoSoft.Razor.Logging.Helpers
+@using mitoSoft.Razor.Logging.Components.Extensions
+
+@inject NavigationManager NavManager
+
+@if (Trunk.IsConfigured == false)
+{
+    <p>
+        It seems as if the PageLogger isn't configured.
+        <br />
+        Please add:
+    </p>
+    <p>
+        <a>
+            .ConfigureLogging(builder => <br />
+            &nbsp;&nbsp;&nbsp;&nbsp; .ClearProviders() <br />
+            &nbsp;&nbsp;&nbsp;&nbsp; .AddPage()
+        </a>
+    </p>
+    <p>
+        in the <a>CreateHostBuilder</a> function of the <a>Program.cs</a> class.
+    </p>
+}
+else
+{
+    <p>
+        <textarea class="form-control" @bind="@_logText" rows="@ShowRows"></textarea>
+    </p>
+}
+
+@code {
+
+    private string _logText;
+    private string _categories;
+    private bool _reverse;
+
+    [Parameter]
+    public bool Reverse
+    {
+        get
+        {
+            return _reverse;
+        }
+        set
+        {
+            _reverse = value;
+            this.Refresh();
+        }
+    }
+
+    [Parameter]
+    public int ShowRows { get; set; } = 20;
+
+    [Parameter]
+    public string Categories
+    {
+        get
+        {
+            return _categories;
+        }
+        set
+        {
+            _categories = value;
+            this.Refresh();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        this.Refresh();
+        base.OnInitialized();
+    }
+
+    public void Refresh()
+    {
+        List<DictionaryLogger> loggers;
+        if (!string.IsNullOrEmpty(Categories))
+        {
+            var categories = Categories.Split(',').ToList().Trim();
+            loggers = this.GetLoggers(categories);
+        }
+        else
+        {
+            loggers = Trunk.Loggers.Values.ToList();
+        }
+
+        if (loggers.Count > 0)
+        {
+            _logText = this.ShowLines(this.GetAllLines(loggers));
+        }
+        else
+        {
+            _logText = "no logger found";
+        }
+        InvokeAsync(StateHasChanged);
+    }
+
+    private List<LogLine> GetAllLines(List<DictionaryLogger> loggers)
+    {
+        var result = new List<LogLine>();
+        foreach (var logger in loggers)
+        {
+            result.AddRange(logger.Lines);
+        }
+        return result;
+    }
+
+    private List<DictionaryLogger> GetLoggers(List<string> categories)
+    {
+        var result = new List<DictionaryLogger>();
+        foreach (var category in categories)
+        {
+            var logger = this.GetLogger(category);
+            if (logger != null)
+            {
+                result.Add(logger);
+            }
+        }
+        return result;
+    }
+
+    private DictionaryLogger GetLogger(string category)
+    {
+        var logger = Trunk.Loggers.FirstOrDefault(kvp => kvp.Key == category).Value;
+        return logger;
+    }
+
+    private string ShowLines(List<LogLine> lines)
+    {
+        lines.Sort(new LogLineComparer());
+        if (lines.Count > Trunk.MaxRows)
+        {
+            lines.RemoveRange(0, lines.Count - Trunk.MaxRows);
+        }
+        if (this.Reverse)
+        {
+            lines.Reverse();
+        }
+        var texts = lines.Select(l => l.ToString("{date}\t[{level}] {message}")).ToList();
+        return string.Join('\n', texts);
+    }
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mitoSoft.Razor.Logging.Components", "mitoSoft.Razor.Logging.Components\mitoSoft.Razor.Logging.Components.csproj", "{77C9D5F6-AD47-47C3-8762-9A2D588521F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77C9D5F6-AD47-47C3-8762-9A2D588521F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C9D5F6-AD47-47C3-8762-9A2D588521F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C9D5F6-AD47-47C3-8762-9A2D588521F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C9D5F6-AD47-47C3-8762-9A2D588521F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {608182CE-FF40-4AFB-B4D2-632779114865}
+	EndGlobalSection
+EndGlobal
