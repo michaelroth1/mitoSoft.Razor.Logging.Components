@@ -13,6 +13,7 @@ namespace mitoSoft.Razor.Logging.Components.Extensions
             provider.Options.DateTimeKind = DateTimeKind.Local;
             provider.Options.MaxRows = 100;
             Trunk.MaxRows = 100;
+            Trunk.OutputFormat = "{date}\t[{level}] {message}";
             Trunk.IsConfigured = true;
 
             builder.AddProvider(provider);
@@ -29,6 +30,7 @@ namespace mitoSoft.Razor.Logging.Components.Extensions
             provider.Options.DateTimeKind = options.DateTimeKind;
             provider.Options.MaxRows = options.MaxRows;
             Trunk.MaxRows = options.MaxRows;
+            Trunk.OutputFormat = options.OutputFormat;
             Trunk.IsConfigured = true;
 
             builder.AddProvider(provider);

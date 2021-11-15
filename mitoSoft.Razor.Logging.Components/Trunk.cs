@@ -8,8 +8,10 @@ namespace mitoSoft.Razor.Logging.Components
         public static bool IsConfigured { get; set; }
 
         public static Dictionary<string, DictionaryLogger> Loggers { get; private set; } = new();
-        
+
         public static int MaxRows { get; set; }
+
+        public static string OutputFormat { get; set; }
 
         public static void RegisterLogger(object sender, LoggerRegisterEventArgs<DictionaryLogger> e)
         {

@@ -139,7 +139,7 @@ else
         {
             lines.Reverse();
         }
-        var texts = lines.Select(l => l.ToString("{date}\t[{level}] {message}")).ToList();
+        var texts = lines.Select(l => l.ToString("")).ToList();
         return string.Join('\n', texts);
     }
 }
