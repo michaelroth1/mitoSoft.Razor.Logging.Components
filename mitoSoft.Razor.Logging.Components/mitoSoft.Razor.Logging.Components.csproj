@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -11,9 +11,9 @@
     <PackageIcon>mitoSoft.png</PackageIcon>
     <PackageTags>Blazor Razor logging loggingcomponent loggingpage</PackageTags>
     <Description>The library contains an embeddable razor component that shows logentries on a textarea of a razor page.</Description>
-    <Version>2.1.0</Version>
-    <PackageReleaseNotes>[BugFixes]
-adopt to bug-fixed package 'mitoSoft.Razor.Logging' version 2.1.0</PackageReleaseNotes>
+    <Version>2.2.0</Version>
+    <PackageReleaseNotes>[Common]
+Nuget update to 'mitoSoft.Razor.Logging' version 2.2.3</PackageReleaseNotes>
   </PropertyGroup>
 
   
@@ -24,7 +24,7 @@ adopt to bug-fixed package 'mitoSoft.Razor.Logging' version 2.1.0</PackageReleas
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.12" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <PackageReference Include="mitoSoft.Razor.Logging" Version="2.1.0" />
+    <PackageReference Include="mitoSoft.Razor.Logging" Version="2.2.3" />
   </ItemGroup>
 
   <ItemGroup>
