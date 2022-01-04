@@ -27,7 +27,14 @@
 else
 {
     <p>
-        <textarea class="form-control" @bind="@_logText" rows="@ShowRows"></textarea>
+        @if (ReadOnly)
+        {
+            <textarea class="form-control" @bind="@_logText" rows="@ShowRows" readonly></textarea>
+        }
+        else
+        {
+            <textarea class="form-control" @bind="@_logText" rows="@ShowRows"></textarea>
+        }
     </p>
 }
 
@@ -36,6 +43,9 @@ else
     private string _logText;
     private string _categories;
     private bool _reverse;
+
+    [Parameter]
+    public bool ReadOnly { get; set; } = false;
 
     [Parameter]
     public bool Reverse

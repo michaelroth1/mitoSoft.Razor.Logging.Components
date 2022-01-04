@@ -11,9 +11,8 @@
     <PackageIcon>mitoSoft.png</PackageIcon>
     <PackageTags>Blazor Razor logging loggingcomponent loggingpage</PackageTags>
     <Description>The library contains an embeddable razor component that shows logentries on a textarea of a razor page.</Description>
-    <Version>2.2.0</Version>
-    <PackageReleaseNotes>[Common]
-Nuget update to 'mitoSoft.Razor.Logging' version 2.2.3</PackageReleaseNotes>
+    <Version>2.2.1</Version>
+    <PackageReleaseNotes>[Feature] added ReadOnly Parameter in Logging.razor component</PackageReleaseNotes>
   </PropertyGroup>
 
   
